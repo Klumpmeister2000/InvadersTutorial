@@ -7,6 +7,7 @@ import "player"
 import "enemySpawner"
 import "scoreDisplay"
 import "screenShake"
+import "transition"
 
 local pd <const> = playdate
 local gfx <const> = pd.graphics

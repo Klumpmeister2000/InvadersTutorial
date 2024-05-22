@@ -1,3 +1,8 @@
+import 'CoreLibs/object'
+import 'CoreLibs/graphics'
+import 'CoreLibs/sprites'
+import "transition"
+
 local pd <const> = playdate
 local gfx <const> = pd.graphics
 
@@ -24,3 +29,15 @@ end
 function Enemy:collisionResponse()
     return "overlap"
 end
+
+-- Add function to check collision with the player
+function Enemy:checkCollisionWithPlayer(player)
+    if self:overlappingSprites()[1] == player then
+        screenWipeTransition(1000, "left", function()
+            print("Transition complete")
+            -- Add any logic you want to execute after the transition
+        end)
+    end
+end
+
+return Enemy
